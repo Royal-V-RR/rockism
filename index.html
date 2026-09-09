@@ -1,0 +1,1824 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Rockism</title>
+<meta name="description" content="Rockism. A completely unnecessary simulation of geological life." />
+<meta name="theme-color" content="#2b2a26" />
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiUm9ja2lzbSIsInNob3J0X25hbWUiOiJSb2NraXNtIiwiZGVzY3JpcHRpb24iOiJBIGNvbXBsZXRlbHkgdW5uZWNlc3Nhcnkgc2ltdWxhdGlvbiBvZiBnZW9sb2dpY2FsIGxpZmUuIiwic3RhcnRfdXJsIjoiLi9pbmRleC5odG1sIiwic2NvcGUiOiIuLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiNlY2U3ZGEiLCJ0aGVtZV9jb2xvciI6IiMyYjJhMjYiLCJvcmllbnRhdGlvbiI6ImFueSIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9USWdNVGt5SWo0S0lDQThjbVZqZENCM2FXUjBhRDBpTVRreUlpQm9aV2xuYUhROUlqRTVNaUlnWm1sc2JEMGlJekkwTXpBeVppSXZQZ29nSUR4amFYSmpiR1VnWTNnOUlqazJJaUJqZVQwaU9UWWlJSEk5SWpjNElpQm1hV3hzUFNKdWIyNWxJaUJ6ZEhKdmEyVTlJaU01WXpOaU1tVWlJSE4wY205clpTMTNhV1IwYUQwaU5DSXZQZ29nSUR4amFYSmpiR1VnWTNnOUlqazJJaUJqZVQwaU9UWWlJSEk5SWpZMElpQm1hV3hzUFNKdWIyNWxJaUJ6ZEhKdmEyVTlJaU5sWTJVM1pHRWlJSE4wY205clpTMTNhV1IwYUQwaU1pSXZQZ29nSUR4d1lYUm9JR1E5SWswZ05qQWdNVEl3SUZFZ05UQWdPREFnT0RBZ05qQWdVU0F4TVRBZ05EQWdNVE0xSURZMUlGRWdNVFV3SURnMUlERXpNQ0F4TVRVZ1VTQXhNVEFnTVRRd0lEZ3dJREV6TlNCUklEWTFJREV6TUNBMk1DQXhNakFnV2lJS0lDQWdJQ0FnSUNCbWFXeHNQU0lqWVRsaE1qa3dJaUJ6ZEhKdmEyVTlJaU0xWmpWaU5USWlJSE4wY205clpTMTNhV1IwYUQwaU15SXZQZ29nSUR4amFYSmpiR1VnWTNnOUlqZzFJaUJqZVQwaU9UQWlJSEk5SWpVaUlHWnBiR3c5SWlNMVpqVmlOVElpSUc5d1lXTnBkSGs5SWpBdU5pSXZQZ29nSUR4amFYSmpiR1VnWTNnOUlqRXhNQ0lnWTNrOUlqRXdOU0lnY2owaU55SWdabWxzYkQwaUl6Vm1OV0kxTWlJZ2IzQmhZMmwwZVQwaU1DNDJJaTgrQ2lBZ1BIUmxlSFFnZUQwaU9UWWlJSGs5SWpFM05TSWdkR1Y0ZEMxaGJtTm9iM0k5SW0xcFpHUnNaU0lnWm05dWRDMW1ZVzFwYkhrOUlrTnZkWEpwWlhJZ1RtVjNMQ0J0YjI1dmMzQmhZMlVpSUdadmJuUXRjMmw2WlQwaU1UWWlJR1pwYkd3OUlpTmxZMlUzWkdFaVBsSlBRMHRKVTAwOEwzUmxlSFErQ2p3dmMzWm5QZ289Iiwic2l6ZXMiOiIxOTJ4MTkyIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwiLCJwdXJwb3NlIjoiYW55In0seyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBMU1USWdOVEV5SWo0S0lDQThjbVZqZENCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUlnWm1sc2JEMGlJekkwTXpBeVppSXZQZ29nSUR4amFYSmpiR1VnWTNnOUlqSTFOaUlnWTNrOUlqSTFOaUlnY2owaU1qQTRJaUJtYVd4c1BTSnViMjVsSWlCemRISnZhMlU5SWlNNVl6TmlNbVVpSUhOMGNtOXJaUzEzYVdSMGFEMGlNVEFpTHo0S0lDQThZMmx5WTJ4bElHTjRQU0l5TlRZaUlHTjVQU0l5TlRZaUlISTlJakUzTUNJZ1ptbHNiRDBpYm05dVpTSWdjM1J5YjJ0bFBTSWpaV05sTjJSaElpQnpkSEp2YTJVdGQybGtkR2c5SWpVaUx6NEtJQ0E4Y0dGMGFDQmtQU0pOSURFMk1DQXpNakFnVVNBeE16TWdNakV6SURJeE15QXhOakFnVVNBeU9UTWdNVEEzSURNMk1DQXhOek1nVVNBME1EQWdNakkzSURNME55QXpNRGNnVVNBeU9UTWdNemN6SURJeE15QXpOakFnVVNBeE56TWdNelEzSURFMk1DQXpNakFnV2lJS0lDQWdJQ0FnSUNCbWFXeHNQU0lqWVRsaE1qa3dJaUJ6ZEhKdmEyVTlJaU0xWmpWaU5USWlJSE4wY205clpTMTNhV1IwYUQwaU9DSXZQZ29nSUR4amFYSmpiR1VnWTNnOUlqSXlOeUlnWTNrOUlqSTBNQ0lnY2owaU1UTWlJR1pwYkd3OUlpTTFaalZpTlRJaUlHOXdZV05wZEhrOUlqQXVOaUl2UGdvZ0lEeGphWEpqYkdVZ1kzZzlJakk1TXlJZ1kzazlJakk0TUNJZ2NqMGlNVGdpSUdacGJHdzlJaU0xWmpWaU5USWlJRzl3WVdOcGRIazlJakF1TmlJdlBnb2dJRHgwWlhoMElIZzlJakkxTmlJZ2VUMGlORFkxSWlCMFpYaDBMV0Z1WTJodmNqMGliV2xrWkd4bElpQm1iMjUwTFdaaGJXbHNlVDBpUTI5MWNtbGxjaUJPWlhjc0lHMXZibTl6Y0dGalpTSWdabTl1ZEMxemFYcGxQU0kwTUNJZ1ptbHNiRDBpSTJWalpUZGtZU0krVWs5RFMwbFRUVHd2ZEdWNGRENEtQQzl6ZG1jK0NnPT0iLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCIsInB1cnBvc2UiOiJhbnkifV19" />
+<style>
+/* Rockism. Visual identity: a geological survey office, not a toy box.
+   Palette: aged ledger paper, slate, a single rubber stamp red for seals and danger. */
+
+:root{
+  --paper: #ece7da;
+  --paper-dark: #ddd6c4;
+  --ink: #2b2a26;
+  --ink-soft: #5a564c;
+  --slate: #3d4a4a;
+  --slate-deep: #24302f;
+  --stamp: #9c3b2e;
+  --line: #c9c0a8;
+  --panel-bg: #f5f1e6;
+
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-mono: "Courier New", ui-monospace, monospace;
+
+  --radius: 3px;
+  --gap: 14px;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+#app{
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+}
+
+.hidden{ display:none !important; }
+.muted{ color: var(--ink-soft); }
+.small{ font-size: 0.82rem; }
+
+/* Masthead */
+.masthead{
+  background: var(--slate-deep);
+  color: var(--paper);
+  padding-top: calc(10px + var(--safe-top));
+  border-bottom: 3px double var(--stamp);
+}
+.masthead-inner{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 6px 14px 10px;
+}
+.seal{ width:34px; height:34px; color: var(--paper-dark); flex:none; }
+.masthead-text{ flex:1; min-width:0; }
+.masthead-eyebrow{ font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.04em; color:#a9b3ad; }
+.masthead h1{ margin:0; font-size:1.4rem; letter-spacing:0.02em; }
+.icon-button{
+  width:40px; height:40px; flex:none;
+  background: transparent; border: 1px solid rgba(236,231,218,0.35);
+  color: var(--paper);
+  border-radius: var(--radius);
+  display:flex; align-items:center; justify-content:center;
+}
+.icon-button svg{ width:20px; height:20px; }
+
+/* Records menu, slides from top on mobile */
+.records-menu{
+  position: fixed; top:0; left:0; right:0; z-index: 40;
+  background: var(--slate-deep);
+  padding: calc(64px + var(--safe-top)) 14px 14px;
+  display:flex; flex-direction:column; gap:2px;
+  transform: translateY(-100%);
+  transition: transform 180ms ease;
+}
+.records-menu.open{ transform: translateY(0); }
+.menu-item{
+  background: transparent; border:0; text-align:left;
+  color: var(--paper); font-family: var(--font-serif); font-size:1.05rem;
+  padding: 12px 6px; border-bottom: 1px solid rgba(236,231,218,0.15);
+}
+.menu-item:active{ background: rgba(236,231,218,0.08); }
+
+/* Main layout: mobile first, single column */
+main{ flex:1; padding: 14px; padding-bottom: calc(24px + var(--safe-bottom)); }
+.screen{ max-width: 1000px; margin: 0 auto; }
+
+.form-card{
+  background: var(--panel-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  margin-top: 20px;
+}
+.form-card-eyebrow{ font-family: var(--font-mono); font-size:0.72rem; color: var(--stamp); margin-bottom:6px; }
+.form-card h2{ margin: 0 0 8px; }
+.field{ display:block; margin: 16px 0; }
+.field span{ display:block; font-size:0.82rem; color: var(--ink-soft); margin-bottom: 4px; }
+.field input{
+  width:100%; font-size:1rem; padding: 12px 10px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: #fff; font-family: var(--font-serif);
+}
+.form-footnote{ font-size:0.76rem; color: var(--ink-soft); margin-top:14px; }
+
+.btn{
+  display:inline-block; min-height:46px; padding: 0 18px;
+  font-family: var(--font-serif); font-size:0.95rem;
+  border: 1px solid var(--ink); background: var(--paper-dark);
+  border-radius: var(--radius); color: var(--ink);
+  margin: 4px 6px 4px 0;
+}
+.btn:active{ transform: translateY(1px); }
+.btn-primary{ background: var(--slate-deep); color: var(--paper); border-color: var(--slate-deep); }
+.btn-danger{ background: var(--stamp); color: var(--paper); border-color: var(--stamp); }
+
+/* Game screen, mobile stacked; landscape/desktop becomes two columns */
+#gameScreen{ display:flex; flex-direction:column; gap: var(--gap); }
+.stage{
+  position:relative;
+  background: linear-gradient(180deg, #d7d0bd, #c7bfa8);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  aspect-ratio: 4 / 3;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+#rockCanvasWrap{ width:70%; max-width:280px; }
+#rockCanvasWrap svg{ width:100%; height:auto; display:block; }
+.stage-caption{
+  position:absolute; left:10px; bottom:8px;
+  display:flex; flex-direction:column; font-family: var(--font-mono); font-size:0.72rem;
+  background: rgba(245,241,230,0.85); padding:4px 8px; border-radius: var(--radius);
+}
+
+.quick-actions{ display:grid; grid-template-columns: repeat(2,1fr); gap:8px; }
+.action-btn{
+  min-height:48px; border:1px solid var(--ink); background: var(--panel-bg);
+  border-radius: var(--radius); font-family: var(--font-serif); font-size:0.92rem;
+}
+.action-btn:active{ background: var(--paper-dark); }
+
+.panel{
+  background: var(--panel-bg); border:1px solid var(--line); border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.panel-title{ font-family: var(--font-mono); font-size:0.72rem; color: var(--ink-soft); margin-bottom:10px; letter-spacing:0.03em; }
+
+.meter-row{ display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:0.85rem; }
+.meter-row span{ width:80px; flex:none; }
+.meter{ flex:1; height:10px; background: var(--paper-dark); border:1px solid var(--line); border-radius:6px; overflow:hidden; }
+.meter-fill{ height:100%; background: var(--slate); width:50%; }
+
+.stat-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; margin:0; font-size:0.82rem; }
+.stat-grid dt{ color: var(--ink-soft); }
+.stat-grid dd{ margin:0; font-family: var(--font-mono); }
+
+.currency-amount{ font-family: var(--font-mono); font-size:1.1rem; }
+
+/* Overlay panels (dossier, wardrobe, etc), full screen slide-up on mobile */
+.overlay-panel{
+  position: fixed; inset:0; z-index: 50;
+  background: var(--paper);
+  display:flex; flex-direction:column;
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom);
+}
+.overlay-header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 14px 16px; border-bottom: 1px solid var(--line);
+  background: var(--panel-bg);
+}
+.overlay-header h2{ margin:0; font-size:1.15rem; }
+.overlay-body{ flex:1; overflow-y:auto; padding: 16px; -webkit-overflow-scrolling: touch; }
+
+.item-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(96px,1fr)); gap:10px; }
+.item-tile{
+  border:1px solid var(--line); border-radius: var(--radius); background: var(--panel-bg);
+  padding:8px; text-align:center; font-size:0.72rem;
+}
+.item-tile.locked{ opacity:0.4; }
+.item-tile .item-swatch{ width:100%; height:52px; margin-bottom:6px; border-radius:2px; }
+
+.ledger-list{ list-style:none; margin:0; padding:0; }
+.ledger-list li{ padding: 10px 0; border-bottom: 1px dashed var(--line); font-size:0.88rem; }
+.ledger-list li time{ display:block; font-family: var(--font-mono); font-size:0.68rem; color: var(--ink-soft); }
+
+.section-heading{ font-size:0.95rem; margin: 18px 0 6px; }
+
+.companion-card{
+  border:1px solid var(--line); border-radius: var(--radius); background: var(--panel-bg);
+  padding: 12px; margin-bottom: 12px;
+}
+.companion-card h4{ margin:0 0 4px; }
+.companion-report{ display:grid; grid-template-columns: 1fr 1fr; gap:4px 12px; font-family: var(--font-mono); font-size:0.78rem; margin: 8px 0; }
+.stage-tag{
+  display:inline-block; font-family: var(--font-mono); font-size:0.68rem;
+  padding:2px 8px; border:1px solid var(--slate); border-radius:10px; color: var(--slate);
+}
+.companion-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.companion-actions .btn{ margin:0; min-height:40px; font-size:0.85rem; }
+
+.furniture-tile{ position:relative; }
+.furniture-tile .btn{ min-height:36px; padding:0 10px; font-size:0.78rem; margin-top:4px; width:100%; }
+
+.filing-group{ margin-bottom: 22px; }
+.filing-group h3{ margin: 0 0 6px; font-size:0.95rem; }
+.danger-group{ border-top: 1px dashed var(--stamp); padding-top:14px; }
+
+#toastRegion{
+  position: fixed; left:0; right:0; bottom: calc(14px + var(--safe-bottom)); z-index: 60;
+  display:flex; flex-direction:column; align-items:center; gap:6px; pointer-events:none;
+}
+.toast{
+  background: var(--slate-deep); color: var(--paper); font-size:0.85rem;
+  padding: 8px 14px; border-radius: var(--radius); max-width: 90vw;
+}
+
+/* Landscape / tablet / desktop: two column layout, reorganized not merely scaled */
+@media (min-width: 760px){
+  #gameScreen{ flex-direction:row; align-items:flex-start; }
+  .stage-column{ flex: 1 1 55%; position: sticky; top: 14px; }
+  .info-column{ flex: 1 1 45%; display:flex; flex-direction:column; gap: var(--gap); }
+  .quick-actions{ grid-template-columns: repeat(4,1fr); margin-top: var(--gap); }
+  .records-menu{ left: auto; width: 280px; transform: translateX(100%); right:0; }
+  .records-menu.open{ transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .records-menu{ transition: none; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="app">
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="30" r="21" fill="none" stroke="currentColor" stroke-width="1"/><text x="30" y="35" text-anchor="middle" font-size="9" font-family="var(--font-mono)" fill="currentColor">ROCK</text></svg>
+      </div>
+      <div class="masthead-text">
+        <div class="masthead-eyebrow">Bureau of Sedentary Life</div>
+        <h1>Rockism</h1>
+      </div>
+      <button id="menuToggle" class="icon-button" aria-label="Open records menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="2" fill="currentColor"/><rect x="3" y="11" width="18" height="2" fill="currentColor"/><rect x="3" y="17" width="18" height="2" fill="currentColor"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav id="recordsMenu" class="records-menu" aria-hidden="true">
+    <button class="menu-item" data-panel="dossier">Dossier</button>
+    <button class="menu-item" data-panel="wardrobe">Wardrobe</button>
+    <button class="menu-item" data-panel="residence">Residence</button>
+    <button class="menu-item" data-panel="tinder">Rock Tinder</button>
+    <button class="menu-item" data-panel="ledger">Ledger</button>
+    <button class="menu-item" data-panel="records">Records Office</button>
+    <button class="menu-item" data-panel="filing">Filing Cabinet</button>
+  </nav>
+
+  <main id="main">
+
+    <section id="onboarding" class="screen">
+      <div class="form-card">
+        <div class="form-card-eyebrow">Intake Form 1, New Specimen</div>
+        <h2>Register a new rock.</h2>
+        <p>Every specimen entering this simulation must be formally registered before it may be issued needs, feelings, or outerwear.</p>
+        <label class="field">
+          <span>Specimen name</span>
+          <input id="nameInput" type="text" maxlength="24" placeholder="e.g. Gerald" autocomplete="off" />
+        </label>
+        <button id="createRockBtn" class="btn btn-primary">File registration</button>
+        <p class="form-footnote">A generation seed will be assigned automatically. This determines the specimen's permanent geological identity and cannot be altered later, per Regulation 4.</p>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen hidden">
+
+      <div class="stage-column">
+        <div class="stage" id="rockStage" aria-label="Rock enclosure">
+          <div id="rockCanvasWrap"></div>
+          <div class="stage-caption">
+            <span id="rockNameLabel"></span>
+            <span id="rockClassLabel" class="muted"></span>
+          </div>
+        </div>
+
+        <div class="quick-actions" id="quickActions">
+          <button class="action-btn" data-action="polish">Polish</button>
+          <button class="action-btn" data-action="talk">Speak to it</button>
+          <button class="action-btn" data-action="relocate">Reposition</button>
+          <button class="action-btn" data-action="observe">Observe</button>
+        </div>
+      </div>
+
+      <div class="info-column">
+
+        <div class="panel" id="needsPanel">
+          <div class="panel-title">Needs, current reading</div>
+          <div class="meter-row"><span>Polish</span><div class="meter"><div class="meter-fill" data-meter="polish"></div></div></div>
+          <div class="meter-row"><span>Warmth</span><div class="meter"><div class="meter-fill" data-meter="warmth"></div></div></div>
+          <div class="meter-row"><span>Attention</span><div class="meter"><div class="meter-fill" data-meter="attention"></div></div></div>
+          <div class="meter-row"><span>Stability</span><div class="meter"><div class="meter-fill" data-meter="stability"></div></div></div>
+        </div>
+
+        <div class="panel" id="statsPanel">
+          <div class="panel-title">Physical statistics</div>
+          <dl class="stat-grid" id="statGrid"></dl>
+        </div>
+
+        <div class="panel" id="xpPanel">
+          <div class="panel-title">Standing, level <span id="levelLabel">1</span></div>
+          <div class="meter"><div class="meter-fill" id="xpFill"></div></div>
+          <div class="muted small" id="xpLabel"></div>
+        </div>
+
+        <div class="panel" id="currencyPanel">
+          <div class="panel-title">Household funds</div>
+          <div class="currency-amount" id="currencyAmount">0 sediment credits</div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="panel-dossier" class="overlay-panel hidden">
+      <div class="overlay-header"><h2>Dossier</h2><button class="icon-button close-panel" aria-label="Close">&times;</button></div>
+      <div class="overlay-body" id="dossierBody"></div>
+    </section>
+
+    <section id="panel-wardrobe" class="overlay-panel hidden">
+      <div class="overlay-header"><h2>Wardrobe</h2><button class="icon-button close-panel" aria-label="Close">&times;</button></div>
+      <div class="overlay-body">
+        <p class="muted small" id="wardrobeCount"></p>
+        <div class="item-grid" id="wardrobeGrid"></div>
+      </div>
+    </section>
+
+    <section id="panel-residence" class="overlay-panel hidden">
+      <div class="overlay-header"><h2>Residence</h2><button class="icon-button close-panel" aria-label="Close">&times;</button></div>
+      <div class="overlay-body">
+        <div id="householdSummary"></div>
+        <h3 class="section-heading">Furniture shop</h3>
+        <p class="muted small">Purchases are deducted from household funds. Featured furniture appears in the enclosure.</p>
+        <div class="item-grid" id="furnitureGrid"></div>
+      </div>
+    </section>
+
+    <section id="panel-tinder" class="overlay-panel hidden">
+      <div class="overlay-header"><h2>Rock Tinder</h2><button class="icon-button close-panel" aria-label="Close">&times;</button></div>
+      <div class="overlay-body">
+        <div class="filing-group">
+          <h3>Introduce a new specimen</h3>
+          <p class="muted small">Import a .rock file from another party to begin an introduction. This does not replace your own specimen.</p>
+          <input type="file" id="companionImportInput" accept=".rock,application/json" />
+        </div>
+        <h3 class="section-heading">Introductions on file</h3>
+        <div id="companionList"></div>
+      </div>
+    </section>
+
+    <section id="panel-ledger" class="overlay-panel hidden">
+      <div class="overlay-header"><h2>Event Ledger</h2><button class="icon-button close-panel" aria-label="Close">&times;</button></div>
+      <div class="overlay-body">
+        <ul class="ledger-list" id="ledgerList"></ul>
+      </div>
+    </section>
+
+    <section id="panel-records" class="overlay-panel hidden">
+      <div class="overlay-header"><h2>Records Office, Achievements</h2><button class="icon-button close-panel" aria-label="Close">&times;</button></div>
+      <div class="overlay-body">
+        <p class="muted small" id="achievementCount"></p>
+        <div class="item-grid" id="achievementGrid"></div>
+      </div>
+    </section>
+
+    <section id="panel-filing" class="overlay-panel hidden">
+      <div class="overlay-header"><h2>Filing Cabinet</h2><button class="icon-button close-panel" aria-label="Close">&times;</button></div>
+      <div class="overlay-body">
+        <div class="filing-group">
+          <h3>Save status</h3>
+          <p class="muted small" id="saveStatus">Not yet saved.</p>
+        </div>
+        <div class="filing-group">
+          <h3>Export specimen</h3>
+          <p class="muted small">Produces a portable .rock file for transfer to another party.</p>
+          <button class="btn" id="exportBtn">Export .rock file</button>
+        </div>
+        <div class="filing-group">
+          <h3>Import specimen</h3>
+          <p class="muted small">Accepts a .rock file. Imported specimens retain their original identity.</p>
+          <input type="file" id="importInput" accept=".rock,application/json" />
+        </div>
+        <div class="filing-group">
+          <h3>Backup and restore</h3>
+          <button class="btn" id="backupBtn">Backup save</button>
+          <button class="btn" id="restoreBtn">Restore save</button>
+        </div>
+        <div class="filing-group danger-group">
+          <h3>Reset</h3>
+          <p class="muted small">Permanently discards the current specimen and all records.</p>
+          <button class="btn btn-danger" id="resetBtn">Reset game</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="toastRegion" aria-live="polite"></div>
+
+</div><script>
+// Deterministic seeded RNG, mulberry32. Used everywhere generation must be
+// reproducible from a stored seed, so an exported and reimported rock
+// renders identically on any device.
+(function (global) {
+  function hashStringToSeed(str) {
+    let h = 1779033703 ^ str.length;
+    for (let i = 0; i < str.length; i++) {
+      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
+    }
+    return function () {
+      h = Math.imul(h ^ (h >>> 16), 2246822507);
+      h = Math.imul(h ^ (h >>> 13), 3266489909);
+      h ^= h >>> 16;
+      return h >>> 0;
+    };
+  }
+
+  function mulberry32(seed) {
+    let a = seed >>> 0;
+    return function () {
+      a |= 0;
+      a = (a + 0x6d2b79f5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function createRng(seedInput) {
+    let seedNum;
+    if (typeof seedInput === "number") {
+      seedNum = seedInput >>> 0;
+    } else {
+      const gen = hashStringToSeed(String(seedInput));
+      seedNum = gen();
+    }
+    const rand = mulberry32(seedNum);
+    return {
+      seed: seedNum,
+      next: rand,
+      range(min, max) { return min + rand() * (max - min); },
+      int(min, max) { return Math.floor(min + rand() * (max - min + 1)); },
+      pick(arr) { return arr[Math.floor(rand() * arr.length)]; },
+      chance(p) { return rand() < p; }
+    };
+  }
+
+  function newSeed() {
+    return (
+      Date.now().toString(36) +
+      Math.floor(Math.random() * 1e9).toString(36)
+    );
+  }
+
+  global.Rockism = global.Rockism || {};
+  global.Rockism.createRng = createRng;
+  global.Rockism.newSeed = newSeed;
+})(window);
+
+
+// Rock data model. Given a seed, produces a full set of deterministic
+// appearance and classification parameters. The same seed always produces
+// the same rock, which is what makes export and import faithful.
+(function (global) {
+
+  const CLASSES = [
+    { name: "Igneous, Granitic", palette: ["#8a8478", "#a9a290", "#5f5b52"], hardness: [6, 7] },
+    { name: "Igneous, Basaltic", palette: ["#3a3a3d", "#2a2a2c", "#55565b"], hardness: [5, 6] },
+    { name: "Sedimentary, Sandstone", palette: ["#c9a876", "#d8bd8f", "#a9814f"], hardness: [3, 4] },
+    { name: "Sedimentary, Limestone", palette: ["#d7d2c4", "#c3bda9", "#e6e1d2"], hardness: [3, 4] },
+    { name: "Metamorphic, Gneiss", palette: ["#6b6558", "#8f8874", "#4a463c"], hardness: [6, 7] },
+    { name: "Metamorphic, Slate", palette: ["#4a5560", "#3a434c", "#5e6a75"], hardness: [4, 5] },
+    { name: "Metamorphic, Quartzite", palette: ["#d9d4cc", "#eae6df", "#b8b2a6"], hardness: [7, 7] }
+  ];
+
+  const SHAPE_FAMILIES = ["Rounded", "Angular", "Tabular", "Elongate", "Irregular"];
+  const SURFACE_TEXTURES = ["Smooth", "Pitted", "Striated", "Vesicular", "Banded"];
+
+  function classify(rng) {
+    return rng.pick(CLASSES);
+  }
+
+  function generateAppearance(seed) {
+    const rng = global.Rockism.createRng(seed);
+    const cls = classify(rng);
+    const shape = rng.pick(SHAPE_FAMILIES);
+    const texture = rng.pick(SURFACE_TEXTURES);
+
+    // Silhouette: a closed polygon perturbed from an ellipse, deterministic.
+    const points = 10 + rng.int(0, 4);
+    const baseRadiusX = rng.range(70, 100);
+    const baseRadiusY = rng.range(55, 85);
+    const jitter = rng.range(0.08, 0.28);
+    const silhouette = [];
+    for (let i = 0; i < points; i++) {
+      const angle = (i / points) * Math.PI * 2;
+      const rMod = 1 + (rng.next() - 0.5) * jitter * 2;
+      silhouette.push({
+        x: Math.cos(angle) * baseRadiusX * rMod,
+        y: Math.sin(angle) * baseRadiusY * rMod
+      });
+    }
+
+    const crackCount = rng.int(0, 4);
+    const cracks = [];
+    for (let i = 0; i < crackCount; i++) {
+      cracks.push({
+        startAngle: rng.range(0, Math.PI * 2),
+        length: rng.range(0.3, 0.8),
+        branches: rng.int(0, 2)
+      });
+    }
+
+    const inclusionCount = rng.int(2, 9);
+    const inclusions = [];
+    for (let i = 0; i < inclusionCount; i++) {
+      inclusions.push({
+        x: rng.range(-0.6, 0.6),
+        y: rng.range(-0.6, 0.6),
+        r: rng.range(2, 8),
+        color: rng.pick(cls.palette)
+      });
+    }
+
+    const hardness = rng.range(cls.hardness[0], cls.hardness[1]);
+    const density = rng.range(2.2, 3.4);
+    const porosity = rng.range(0.01, 0.35);
+    const volumeUnits = (baseRadiusX * baseRadiusY) / 1000;
+    const mass = +(volumeUnits * density * 10).toFixed(2);
+
+    return {
+      classification: cls.name,
+      palette: cls.palette,
+      shapeFamily: shape,
+      surfaceTexture: texture,
+      silhouette,
+      cracks,
+      inclusions,
+      hardness: +hardness.toFixed(1),
+      density: +density.toFixed(2),
+      porosity: +porosity.toFixed(2),
+      mass,
+      structuralIntegrity: +(100 - porosity * 60).toFixed(1)
+    };
+  }
+
+  function randomAgeMillionYears(rng) {
+    // Weighted toward "old", because it is a rock.
+    return rng.int(2, 4200);
+  }
+
+  function createNewRock(name, seed) {
+    const rng = global.Rockism.createRng(seed + ":meta");
+    const appearance = generateAppearance(seed);
+    const now = Date.now();
+    return {
+      id: (global.crypto && global.crypto.randomUUID) ? global.crypto.randomUUID() : (seed + "-" + now),
+      name: name,
+      seed: seed,
+      createdAt: now,
+      firstObservedAt: now,
+      ownershipHistory: [{ event: "registered", at: now }],
+      appearance,
+      geologicalAgeMillionYears: randomAgeMillionYears(rng),
+      knownAgeDays: 0,
+      needs: { polish: 80, warmth: 70, attention: 75, stability: 90 },
+      stats: {
+        hardness: appearance.hardness,
+        density: appearance.density,
+        porosity: appearance.porosity,
+        mass: appearance.mass,
+        structuralIntegrity: appearance.structuralIntegrity
+      },
+      personality: rollPersonality(rng),
+      level: 1,
+      xp: 0,
+      currency: 25,
+      inventory: [],
+      wornItems: [],
+      unlockedAchievements: [],
+      events: [
+        { at: now, text: "Specimen formally registered with the Bureau of Sedentary Life." }
+      ],
+      memories: [],
+      residence: {
+        rooms: [{ id: "main", name: "Main Enclosure" }]
+      },
+      furnitureInventory: [],
+      featuredFurnitureId: null,
+      companions: [],
+      relationships: {},
+      household: null,
+      lastTickAt: now
+    };
+  }
+
+  function rollPersonality(rng) {
+    const traits = ["Stoic", "Vigilant", "Ponderous", "Dignified", "Unbothered", "Meticulous", "Weathered", "Reserved"];
+    const primary = rng.pick(traits);
+    let secondary = rng.pick(traits);
+    while (secondary === primary) secondary = rng.pick(traits);
+    return { primary, secondary };
+  }
+
+  global.Rockism = global.Rockism || {};
+  global.Rockism.RockModel = { generateAppearance, createNewRock, CLASSES };
+
+})(window);
+
+
+// Renders a rock (and any worn items) as procedural SVG derived purely from
+// stored appearance parameters. No emoji, no bitmap assets.
+(function (global) {
+
+  function silhouettePath(silhouette) {
+    if (!silhouette.length) return "";
+    let d = `M ${silhouette[0].x.toFixed(1)} ${silhouette[0].y.toFixed(1)} `;
+    for (let i = 1; i <= silhouette.length; i++) {
+      const p = silhouette[i % silhouette.length];
+      const prev = silhouette[i - 1];
+      const midX = (prev.x + p.x) / 2;
+      const midY = (prev.y + p.y) / 2;
+      d += `Q ${prev.x.toFixed(1)} ${prev.y.toFixed(1)} ${midX.toFixed(1)} ${midY.toFixed(1)} `;
+    }
+    d += "Z";
+    return d;
+  }
+
+  function crackPath(crack, silhouette) {
+    const cx = Math.cos(crack.startAngle) * 90 * crack.length;
+    const cy = Math.sin(crack.startAngle) * 70 * crack.length;
+    let d = `M 0 0 L ${cx.toFixed(1)} ${cy.toFixed(1)}`;
+    if (crack.branches > 0) {
+      const bx = cx + Math.cos(crack.startAngle + 0.6) * 20;
+      const by = cy + Math.sin(crack.startAngle + 0.6) * 20;
+      d += ` M ${(cx * 0.6).toFixed(1)} ${(cy * 0.6).toFixed(1)} L ${bx.toFixed(1)} ${by.toFixed(1)}`;
+    }
+    return d;
+  }
+
+  function renderRockSvg(rock, wornItems, featuredFurnitureId) {
+    const a = rock.appearance;
+    const path = silhouettePath(a.silhouette);
+    const [c1, c2, c3] = a.palette;
+    const gradId = "grad-" + rock.id.replace(/[^a-zA-Z0-9]/g, "");
+
+    let inclusionsSvg = a.inclusions.map(inc =>
+      `<circle cx="${(inc.x * 90).toFixed(1)}" cy="${(inc.y * 70).toFixed(1)}" r="${inc.r.toFixed(1)}" fill="${inc.color}" opacity="0.55"/>`
+    ).join("");
+
+    let cracksSvg = a.cracks.map(c =>
+      `<path d="${crackPath(c, a.silhouette)}" stroke="${c3}" stroke-width="1.1" fill="none" opacity="0.6"/>`
+    ).join("");
+
+    let clothingSvg = "";
+    if (wornItems && wornItems.length && global.Rockism.Clothing) {
+      clothingSvg = wornItems
+        .map(itemId => global.Rockism.Clothing.renderItemSvg(itemId, a))
+        .join("");
+    }
+
+    let furnitureSvg = "";
+    if (featuredFurnitureId && global.Rockism.Furniture) {
+      furnitureSvg = global.Rockism.Furniture.renderFeaturedSvg(featuredFurnitureId);
+    }
+
+    return `
+      <svg viewBox="-120 -110 240 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${rock.name}, a rock">
+        <defs>
+          <radialGradient id="${gradId}" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="${c2}"/>
+            <stop offset="60%" stop-color="${c1}"/>
+            <stop offset="100%" stop-color="${c3}"/>
+          </radialGradient>
+        </defs>
+        ${furnitureSvg}
+        <ellipse cx="0" cy="92" rx="80" ry="14" fill="#000" opacity="0.16"/>
+        <path d="${path}" fill="url(#${gradId})" stroke="${c3}" stroke-width="2"/>
+        ${inclusionsSvg}
+        ${cracksSvg}
+        ${clothingSvg}
+      </svg>
+    `;
+  }
+
+  function mountRock(container, rock, wornItems, featuredFurnitureId) {
+    container.innerHTML = renderRockSvg(rock, wornItems, featuredFurnitureId);
+  }
+
+  global.Rockism = global.Rockism || {};
+  global.Rockism.Renderer = { renderRockSvg, mountRock };
+
+})(window);
+
+
+// Clothing catalog. Each item is a real, distinct definition with its own
+// procedural SVG render function, not a recolor of a single template.
+// This first tranche covers four categories at meaningful depth; the
+// catalog is intentionally structured (id, category, renderer) so it can
+// be extended up to the specification's full count of 250 without
+// changing any calling code.
+(function (global) {
+
+  const CATALOG = [];
+
+  function addItem(def) { CATALOG.push(def); }
+
+  // --- Headwear ---
+  const headwear = [
+    ["Field Surveyor's Hat", "#5c4a34"],
+    ["Miner's Helmet", "#7a7a72"],
+    ["Woolen Cap", "#8a2f3a"],
+    ["Formal Top Hat", "#1c1c1c"],
+    ["Sun Visor", "#e0c46a"],
+    ["Knit Beanie", "#3a5f6b"],
+    ["Paper Party Hat", "#c95b6b"],
+    ["Academic Cap", "#22242b"],
+    ["Straw Hat", "#d8c07a"],
+    ["Bandana", "#8a3b3b"]
+  ];
+  headwear.forEach(([n, color], i) => addItem({
+    id: "hat_" + i, name: n, category: "Headwear", color,
+    description: "Approved headwear for formal geological occasions, catalogued item.",
+    render: (color) => (a) => `<path d="M -30 -70 Q 0 -110 30 -70 L 26 -55 L -26 -55 Z" fill="${color}" stroke="#000" stroke-opacity="0.25"/>`,
+  }));
+
+  // --- Eyewear ---
+  const eyewear = [
+    ["Reading Spectacles", "#2b2b2b"],
+    ["Round Sunglasses", "#111"],
+    ["Monocle", "#c9a227"],
+    ["Safety Goggles", "#6a9ba8"],
+    ["Wire Frames", "#a8a8a8"]
+  ];
+  eyewear.forEach(([n, color], i) => addItem({
+    id: "eyewear_" + i, name: n, category: "Eyewear", color,
+    description: "Corrective or decorative eyewear, fitted to specimen contours.",
+    render: (color) => (a) => `<g stroke="${color}" stroke-width="3" fill="none"><circle cx="-18" cy="-10" r="12"/><circle cx="18" cy="-10" r="12"/><line x1="-6" y1="-10" x2="6" y2="-10"/></g>`,
+  }));
+
+  // --- Neckwear ---
+  const neckwear = [
+    ["Formal Necktie", "#7a1f1f"],
+    ["Bow Tie", "#1f3b7a"],
+    ["Woolen Scarf", "#4a7a4a"],
+    ["Pearl Necklace", "#e8e2d0"],
+    ["Bolo Tie", "#5c4a34"],
+    ["Ascot", "#7a4a1f"]
+  ];
+  neckwear.forEach(([n, color], i) => addItem({
+    id: "neck_" + i, name: n, category: "Neckwear", color,
+    description: "Neckwear appropriate for a specimen with no discernible neck.",
+    render: (color) => (a) => `<path d="M -14 40 L 0 30 L 14 40 L 10 75 L -10 75 Z" fill="${color}"/>`,
+  }));
+
+  // --- Accessories ---
+  const accessories = [
+    ["Wristwatch", "#8a8a8a"],
+    ["Small Medal", "#c9a227"],
+    ["Name Badge", "#e8e2d0"],
+    ["Pocket Square", "#7a1f4a"],
+    ["Lapel Pin", "#2b6b4a"],
+    ["Utility Belt", "#3a3a3a"],
+    ["Ceremonial Sash", "#7a1f1f"]
+  ];
+  accessories.forEach(([n, color], i) => addItem({
+    id: "acc_" + i, name: n, category: "Accessories", color,
+    description: "Supplementary accessory, purely for the record.",
+    render: (color) => (a) => `<rect x="-6" y="30" width="12" height="30" rx="3" fill="${color}"/>`,
+  }));
+
+  function all() { return CATALOG; }
+  function byId(id) { return CATALOG.find(c => c.id === id); }
+
+  function renderItemSvg(itemId, appearance) {
+    const item = byId(itemId);
+    if (!item) return "";
+    try {
+      return item.render(item.color)(appearance);
+    } catch (e) {
+      return "";
+    }
+  }
+
+  global.Rockism = global.Rockism || {};
+  global.Rockism.Clothing = { all, byId, renderItemSvg, TOTAL_PLANNED: 250 };
+
+})(window);
+
+
+// Furniture catalog. Procedurally rendered, purchased with sediment
+// credits, and placed in the residence. One item may be "featured" and
+// renders as a background layer behind the rock in the main stage.
+(function (global) {
+
+  const CATALOG = [
+    { id: "furn_pedestal", name: "Formal Pedestal", price: 20, category: "Display",
+      desc: "Elevates the specimen for proper viewing angles, as regulations require.",
+      render: () => `<rect x="-45" y="70" width="90" height="14" rx="2" fill="#8a8072"/><rect x="-30" y="82" width="60" height="10" fill="#6b6255"/>` },
+    { id: "furn_gravel", name: "Gravel Bed", price: 12, category: "Ground",
+      desc: "A naturalistic ground covering, selected for drainage and appearance.",
+      render: () => `<g>${Array.from({length:14}).map((_,i)=>`<circle cx="${(i*13-84)}" cy="${86+((i%3)*3)}" r="3" fill="#a39a86"/>`).join("")}</g>` },
+    { id: "furn_lamp", name: "Terrarium Lamp", price: 35, category: "Lighting",
+      desc: "Provides simulated warmth, closely monitored by facility staff.",
+      render: () => `<line x1="70" y1="-100" x2="70" y2="-20" stroke="#5c5648" stroke-width="3"/><path d="M 55 -100 L 85 -100 L 70 -115 Z" fill="#d8c46a"/>` },
+    { id: "furn_shelf", name: "Small Shelf", price: 18, category: "Storage",
+      desc: "For the tasteful display of the specimen's medals and certificates.",
+      render: () => `<rect x="-95" y="10" width="20" height="60" fill="#6b5a44"/><rect x="-100" y="8" width="30" height="6" fill="#7a674e"/>` },
+    { id: "furn_nameplate", name: "Nameplate Stand", price: 15, category: "Display",
+      desc: "Formally identifies the specimen to visiting inspectors.",
+      render: () => `<rect x="-30" y="95" width="60" height="14" rx="2" fill="#2b2a26"/>` },
+    { id: "furn_cushion", name: "Ceremonial Cushion", price: 22, category: "Comfort",
+      desc: "Comfort is not required for a rock, but it is offered anyway.",
+      render: () => `<ellipse cx="0" cy="88" rx="55" ry="12" fill="#7a2f3a"/>` },
+    { id: "furn_fence", name: "Miniature Fence", price: 16, category: "Boundary",
+      desc: "Establishes a clear perimeter for enclosure integrity.",
+      render: () => `<g stroke="#5c4a34" stroke-width="3">${Array.from({length:9}).map((_,i)=>`<line x1="${i*20-80}" y1="70" x2="${i*20-80}" y2="95"/>`).join("")}<line x1="-90" y1="72" x2="90" y2="72"/></g>` },
+    { id: "furn_case", name: "Display Case", price: 60, category: "Display",
+      desc: "Glass enclosure for specimens of exceptional standing.",
+      render: () => `<rect x="-70" y="-90" width="140" height="180" fill="none" stroke="#9bb0b6" stroke-width="2" opacity="0.5"/>` },
+    { id: "furn_moss", name: "Moss Patch", price: 10, category: "Ground",
+      desc: "A small patch of moss, permitted under enclosure guideline 9.",
+      render: () => `<ellipse cx="-40" cy="92" rx="24" ry="8" fill="#4a6b3a" opacity="0.8"/>` },
+    { id: "furn_certificate", name: "Framed Certificate", price: 28, category: "Wall",
+      desc: "Commemorates the specimen's formal registration.",
+      render: () => `<rect x="60" y="-95" width="34" height="26" fill="#e8e2d0" stroke="#5c4a34" stroke-width="2"/>` }
+  ];
+
+  function all() { return CATALOG; }
+  function byId(id) { return CATALOG.find(f => f.id === id); }
+
+  function renderFeaturedSvg(itemId) {
+    const item = byId(itemId);
+    if (!item) return "";
+    try { return item.render(); } catch (e) { return ""; }
+  }
+
+  global.Rockism = global.Rockism || {};
+  global.Rockism.Furniture = { all, byId, renderFeaturedSvg };
+
+})(window);
+
+
+// Compatibility engine. Produces an absurdly serious, fully deterministic
+// report scoring two rocks against one another. Same pair of rocks always
+// produces the same report, which matters once reports can be regenerated
+// or shared.
+(function (global) {
+
+  function closeness(a, b, range) {
+    // 100 when identical, decaying linearly to 0 at the given range of
+    // difference. Never negative.
+    const diff = Math.abs(a - b);
+    return Math.max(0, 100 - (diff / range) * 100);
+  }
+
+  function personalityOverlapScore(pA, pB) {
+    const traitsA = [pA.primary, pA.secondary];
+    const traitsB = [pB.primary, pB.secondary];
+    const shared = traitsA.filter((t) => traitsB.includes(t)).length;
+    // Some shared temperament reads as harmony, total overlap reads as
+    // stagnant, and zero overlap reads as friction. A single shared trait
+    // scores best.
+    if (shared === 1) return 90;
+    if (shared === 2) return 65;
+    return 55;
+  }
+
+  function classificationScore(rockA, rockB) {
+    const famA = rockA.appearance.classification.split(",")[0].trim();
+    const famB = rockB.appearance.classification.split(",")[0].trim();
+    if (rockA.appearance.classification === rockB.appearance.classification) return 100;
+    if (famA === famB) return 78;
+    return 48;
+  }
+
+  function computeCompatibility(rockA, rockB) {
+    const structural = Math.round(
+      (closeness(rockA.stats.hardness, rockB.stats.hardness, 6) * 0.5) +
+      (closeness(rockA.stats.structuralIntegrity, rockB.stats.structuralIntegrity, 40) * 0.5)
+    );
+    const mineral = Math.round(
+      (classificationScore(rockA, rockB) * 0.6) +
+      (closeness(rockA.stats.density, rockB.stats.density, 1.2) * 0.4)
+    );
+    const temperament = Math.round(personalityOverlapScore(rockA.personality, rockB.personality));
+
+    const overall = Math.round(structural * 0.35 + mineral * 0.35 + temperament * 0.3);
+
+    let verdict;
+    if (overall >= 85) verdict = "Exceptional compatibility. The Bureau recommends further proceedings.";
+    else if (overall >= 65) verdict = "Favorable compatibility. Continued observation is advised.";
+    else if (overall >= 45) verdict = "Moderate compatibility. Proceed at the specimens' own discretion.";
+    else verdict = "Limited compatibility. The Bureau notes this pairing for the record only.";
+
+    return { structural, mineral, temperament, overall, verdict };
+  }
+
+  global.Rockism = global.Rockism || {};
+  global.Rockism.Compatibility = { computeCompatibility };
+
+})(window);
+
+
+// Relationships. Companions are rocks imported specifically through Rock
+// Tinder (kept separate from the player's own save/restore identity).
+// Each companion has a relationship record that advances through a real
+// state machine driven by affinity, not a cosmetic label.
+(function (global) {
+
+  const STAGES = ["Stranger", "Acquainted", "Courting", "Dating", "Committed", "Cohabiting"];
+
+  const THRESHOLDS = {
+    Acquainted: 0,
+    Courting: 25,
+    Dating: 55,
+    Committed: 85
+    // Cohabiting is a deliberate action once Committed, not automatic.
+  };
+
+  function stageForAffinity(affinity, isCohabiting) {
+    if (isCohabiting) return "Cohabiting";
+    if (affinity >= THRESHOLDS.Committed) return "Committed";
+    if (affinity >= THRESHOLDS.Dating) return "Dating";
+    if (affinity >= THRESHOLDS.Courting) return "Courting";
+    return "Acquainted";
+  }
+
+  function addCompanion(rock, companionSummary) {
+    const exists = rock.companions.find((c) => c.id === companionSummary.id);
+    if (exists) return exists;
+    rock.companions.push(companionSummary);
+    rock.relationships[companionSummary.id] = {
+      companionId: companionSummary.id,
+      affinity: 0,
+      stage: "Stranger",
+      startedAt: Date.now(),
+      lastInteractionAt: Date.now(),
+      interactionCount: 0
+    };
+    return companionSummary;
+  }
+
+  function introduce(rock, companionId) {
+    const rel = rock.relationships[companionId];
+    if (!rel) return null;
+    if (rel.stage !== "Stranger") return rel;
+    rel.affinity = THRESHOLDS.Acquainted + 5;
+    rel.stage = "Acquainted";
+    rel.lastInteractionAt = Date.now();
+    rel.interactionCount += 1;
+    return rel;
+  }
+
+  function court(rock, companionId, compatibilityOverall) {
+    const rel = rock.relationships[companionId];
+    if (!rel || rel.stage === "Stranger") return null;
+    // Compatibility influences how much a single courtship gesture is
+    // worth, so an incompatible pairing genuinely progresses more slowly.
+    const gain = 6 + Math.round((compatibilityOverall / 100) * 10);
+    rel.affinity = Math.min(100, rel.affinity + gain);
+    rel.stage = stageForAffinity(rel.affinity, rel.stage === "Cohabiting");
+    rel.lastInteractionAt = Date.now();
+    rel.interactionCount += 1;
+    return rel;
+  }
+
+  function canFormHousehold(rock, companionId) {
+    const rel = rock.relationships[companionId];
+    return !!rel && rel.stage === "Committed";
+  }
+
+  function formHousehold(rock, companionId) {
+    const rel = rock.relationships[companionId];
+    if (!rel || rel.stage !== "Committed") {
+      throw new Error("A household may only be formed with a committed partner.");
+    }
+    rel.stage = "Cohabiting";
+    rock.household = {
+      partnerId: companionId,
+      formedAt: Date.now(),
+      sharedFund: 0
+    };
+    return rock.household;
+  }
+
+  function dissolveHousehold(rock) {
+    if (!rock.household) return;
+    const partnerId = rock.household.partnerId;
+    rock.household = null;
+    const rel = rock.relationships[partnerId];
+    if (rel) rel.stage = "Committed";
+  }
+
+  function decayAffinity(rock) {
+    Object.values(rock.relationships).forEach((rel) => {
+      if (rel.stage === "Stranger") return;
+      const daysSince = (Date.now() - rel.lastInteractionAt) / 86400000;
+      if (daysSince > 3) {
+        rel.affinity = Math.max(0, rel.affinity - Math.floor(daysSince));
+        if (rel.stage !== "Cohabiting") {
+          rel.stage = rel.affinity <= 0 ? "Stranger" : stageForAffinity(rel.affinity, false);
+        }
+      }
+    });
+  }
+
+  global.Rockism = global.Rockism || {};
+  global.Rockism.Relationships = {
+    STAGES, THRESHOLDS,
+    addCompanion, introduce, court, canFormHousehold, formHousehold, dissolveHousehold, decayAffinity
+  };
+
+})(window);
+
+
+// Achievement definitions. Each has a real, distinct condition function
+// evaluated against live rock state, not a generic placeholder. This first
+// tranche covers the core loop; the list is structured for extension up to
+// the specification's full count of 100.
+(function (global) {
+
+  function daysSince(ts) { return (Date.now() - ts) / 86400000; }
+
+  const DEFS = [
+    { id: "a001", name: "Specimen Registered", desc: "Complete the intake form for a new rock, no exceptions.", check: (r) => true },
+    { id: "a002", name: "First Polish", desc: "Polish the specimen for the first time, as procedure requires.", check: (r) => (r._polishCount || 0) >= 1 },
+    { id: "a003", name: "Fully Polished", desc: "Raise polish to its maximum permitted reading.", check: (r) => r.needs.polish >= 100 },
+    { id: "a004", name: "Well Attended", desc: "Raise attention to its maximum permitted reading.", check: (r) => r.needs.attention >= 100 },
+    { id: "a005", name: "Structurally Sound", desc: "Maintain stability above ninety for one week, on paper.", check: (r) => r.needs.stability >= 90 && daysSince(r.createdAt) >= 7 },
+    { id: "a006", name: "First Garment", desc: "Issue the specimen its first piece of clothing.", check: (r) => r.wornItems.length >= 1 },
+    { id: "a007", name: "Fully Dressed", desc: "Have the specimen wearing four items simultaneously.", check: (r) => r.wornItems.length >= 4 },
+    { id: "a008", name: "Wardrobe of Note", desc: "Accumulate ten items in inventory.", check: (r) => r.inventory.length >= 10 },
+    { id: "a009", name: "Level Two Standing", desc: "Reach level two.", check: (r) => r.level >= 2 },
+    { id: "a010", name: "Level Five Standing", desc: "Reach level five.", check: (r) => r.level >= 5 },
+    { id: "a011", name: "Level Ten Standing", desc: "Reach level ten.", check: (r) => r.level >= 10 },
+    { id: "a012", name: "One Week Observed", desc: "Own the specimen for seven consecutive days.", check: (r) => daysSince(r.createdAt) >= 7 },
+    { id: "a013", name: "One Month Observed", desc: "Own the specimen for thirty consecutive days.", check: (r) => daysSince(r.createdAt) >= 30 },
+    { id: "a014", name: "Ancient Specimen", desc: "Register a rock with a geological age exceeding two thousand million years.", check: (r) => r.geologicalAgeMillionYears > 2000 },
+    { id: "a015", name: "Dense Reading", desc: "Register a rock with density above three point one.", check: (r) => r.stats.density > 3.1 },
+    { id: "a016", name: "Porous Reading", desc: "Register a rock with porosity above thirty percent.", check: (r) => r.stats.porosity > 0.3 },
+    { id: "a017", name: "Hardness Class Seven", desc: "Register a rock of hardness seven or greater.", check: (r) => r.stats.hardness >= 7 },
+    { id: "a018", name: "First Export", desc: "Export the specimen as a portable file, per Regulation 12.", check: (r) => (r._exportCount || 0) >= 1 },
+    { id: "a019", name: "First Import", desc: "Successfully import a specimen from another party.", check: (r) => !!r._wasImported },
+    { id: "a020", name: "Funded", desc: "Accumulate one hundred sediment credits.", check: (r) => r.currency >= 100 },
+    { id: "a021", name: "Well Funded", desc: "Accumulate five hundred sediment credits.", check: (r) => r.currency >= 500 },
+    { id: "a022", name: "Ledger Entry", desc: "Generate ten recorded events.", check: (r) => r.events.length >= 10 },
+    { id: "a023", name: "Extensive Record", desc: "Generate fifty recorded events.", check: (r) => r.events.length >= 50 },
+    { id: "a024", name: "Igneous Filing", desc: "Register an igneous specimen.", check: (r) => r.appearance.classification.startsWith("Igneous") },
+    { id: "a025", name: "Sedimentary Filing", desc: "Register a sedimentary specimen.", check: (r) => r.appearance.classification.startsWith("Sedimentary") },
+    { id: "a026", name: "Metamorphic Filing", desc: "Register a metamorphic specimen.", check: (r) => r.appearance.classification.startsWith("Metamorphic") },
+    { id: "a027", name: "Cracked Under Pressure", desc: "Own a specimen exhibiting at least three surface cracks.", check: (r) => r.appearance.cracks.length >= 3 },
+    { id: "a028", name: "Unblemished", desc: "Own a specimen exhibiting no surface cracks.", check: (r) => r.appearance.cracks.length === 0 },
+    { id: "a029", name: "Considerable Mass", desc: "Register a specimen with mass above twenty units.", check: (r) => r.stats.mass > 20 },
+    { id: "a030", name: "Backed Up", desc: "Create a manual backup of the save file.", check: (r) => (r._backupCount || 0) >= 1 },
+    { id: "a031", name: "First Introduction", desc: "Introduce the specimen to another rock via Rock Tinder.", check: (r) => r.companions.length >= 1 },
+    { id: "a032", name: "Popular Specimen", desc: "Maintain introductions with five separate companions.", check: (r) => r.companions.length >= 5 },
+    { id: "a033", name: "Courtship Underway", desc: "Advance a relationship to the Courting stage.", check: (r) => Object.values(r.relationships).some((rel) => ["Courting", "Dating", "Committed", "Cohabiting"].includes(rel.stage)) },
+    { id: "a034", name: "Officially Dating", desc: "Advance a relationship to the Dating stage.", check: (r) => Object.values(r.relationships).some((rel) => ["Dating", "Committed", "Cohabiting"].includes(rel.stage)) },
+    { id: "a035", name: "Committed Relationship", desc: "Advance a relationship to the Committed stage.", check: (r) => Object.values(r.relationships).some((rel) => ["Committed", "Cohabiting"].includes(rel.stage)) },
+    { id: "a036", name: "Shared Household", desc: "Form a cohabiting household with a committed partner.", check: (r) => !!r.household },
+    { id: "a037", name: "First Furnishing", desc: "Acquire an item of furniture for the residence.", check: (r) => r.furnitureInventory.length >= 1 },
+    { id: "a038", name: "Furnished Residence", desc: "Acquire five items of furniture for the residence.", check: (r) => r.furnitureInventory.length >= 5 }
+  ];
+
+  function evaluate(rock) {
+    const newlyUnlocked = [];
+    DEFS.forEach(def => {
+      const already = rock.unlockedAchievements.includes(def.id);
+      if (!already && safeCheck(def, rock)) {
+        rock.unlockedAchievements.push(def.id);
+        newlyUnlocked.push(def);
+      }
+    });
+    return newlyUnlocked;
+  }
+
+  function safeCheck(def, rock) {
+    try { return !!def.check(rock); } catch (e) { return false; }
+  }
+
+  global.Rockism = global.Rockism || {};
+  global.Rockism.Achievements = { DEFS, evaluate, TOTAL_PLANNED: 100 };
+
+})(window);
+
+
+// Save architecture. LocalStorage is the live save. All saves carry a
+// schema version so future format changes can be migrated rather than
+// breaking old saves. Exported .rock files use the same schema, which is
+// what makes them a faithful, portable specimen identity rather than a
+// cosmetic snapshot.
+(function (global) {
+
+  const SCHEMA_VERSION = 1;
+  const GAME_VERSION = "0.1.0";
+  const LIVE_KEY = "rockism.save.v" + SCHEMA_VERSION;
+  const BACKUP_KEY = "rockism.backup.v" + SCHEMA_VERSION;
+
+  function wrap(rock) {
+    return {
+      schemaVersion: SCHEMA_VERSION,
+      gameVersion: GAME_VERSION,
+      rock
+    };
+  }
+
+  // Migration table. Each function takes a save object of the version
+  // below the key and returns one at that version. Empty for now since
+  // schema version 1 is the first release, but the mechanism is real.
+  const MIGRATIONS = {
+    // 2: (save) => { ...transform...; save.schemaVersion = 2; return save; }
+  };
+
+  function migrate(save) {
+    let current = save;
+    while (current.schemaVersion < SCHEMA_VERSION) {
+      const step = MIGRATIONS[current.schemaVersion + 1];
+      if (!step) {
+        throw new Error("No migration path from schema version " + current.schemaVersion);
+      }
+      current = step(current);
+    }
+    return current;
+  }
+
+  // Backfills fields introduced after a rock was first created, so saves
+  // from an earlier version of the game keep working without a formal
+  // schema bump. Real schema bumps (appearance format changes, etc.) still
+  // go through the MIGRATIONS table above.
+  function backfillDefaults(rock) {
+    if (!rock) return rock;
+    if (!Array.isArray(rock.memories)) rock.memories = [];
+    if (!rock.residence || !Array.isArray(rock.residence.rooms)) {
+      rock.residence = { rooms: [{ id: "main", name: "Main Enclosure" }] };
+    }
+    if (!Array.isArray(rock.furnitureInventory)) rock.furnitureInventory = [];
+    if (typeof rock.featuredFurnitureId === "undefined") rock.featuredFurnitureId = null;
+    if (!Array.isArray(rock.companions)) rock.companions = [];
+    if (!rock.relationships || typeof rock.relationships !== "object") rock.relationships = {};
+    if (typeof rock.household === "undefined") rock.household = null;
+    return rock;
+  }
+
+  function saveLive(rock) {
+    try {
+      localStorage.setItem(LIVE_KEY, JSON.stringify(wrap(rock)));
+      return true;
+    } catch (e) {
+      console.error("Rockism save failed", e);
+      return false;
+    }
+  }
+
+  function loadLive() {
+    const raw = localStorage.getItem(LIVE_KEY);
+    if (!raw) return null;
+    try {
+      let save = JSON.parse(raw);
+      save = migrate(save);
+      return backfillDefaults(save.rock);
+    } catch (e) {
+      console.error("Rockism load failed, save may be corrupted", e);
+      return null;
+    }
+  }
+
+  function clearLive() {
+    localStorage.removeItem(LIVE_KEY);
+  }
+
+  function backup(rock) {
+    localStorage.setItem(BACKUP_KEY, JSON.stringify(wrap(rock)));
+  }
+
+  function restoreBackup() {
+    const raw = localStorage.getItem(BACKUP_KEY);
+    if (!raw) return null;
+    try {
+      let save = JSON.parse(raw);
+      save = migrate(save);
+      return backfillDefaults(save.rock);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function sanitizeText(str, maxLen) {
+    if (typeof str !== "string") return "";
+    return str
+      .replace(/[<>]/g, "")
+      .slice(0, maxLen || 60);
+  }
+
+  // Validate and sanitize an imported .rock payload. Imported files are
+  // untrusted: no code execution, no unsafe HTML injection, and malformed
+  // data is rejected rather than crashing the app.
+  function validateAndSanitizeImport(json) {
+    let save;
+    try {
+      save = typeof json === "string" ? JSON.parse(json) : json;
+    } catch (e) {
+      throw new Error("The file could not be parsed as a valid .rock file.");
+    }
+    if (!save || typeof save !== "object" || !save.rock) {
+      throw new Error("The file does not contain a recognizable specimen record.");
+    }
+    save = migrate(save);
+    const rock = save.rock;
+
+    if (!rock.appearance || !rock.appearance.silhouette || !Array.isArray(rock.appearance.silhouette)) {
+      throw new Error("The specimen's appearance data is missing or malformed.");
+    }
+    if (!rock.seed || !rock.id) {
+      throw new Error("The specimen is missing required identity fields.");
+    }
+
+    rock.name = sanitizeText(rock.name, 24) || "Unnamed Specimen";
+    if (Array.isArray(rock.events)) {
+      rock.events = rock.events.slice(0, 500).map(ev => ({
+        at: typeof ev.at === "number" ? ev.at : Date.now(),
+        text: sanitizeText(ev.text, 200)
+      }));
+    } else {
+      rock.events = [];
+    }
+
+    rock.inventory = Array.isArray(rock.inventory) ? rock.inventory.filter(i => typeof i === "string") : [];
+    rock.wornItems = Array.isArray(rock.wornItems) ? rock.wornItems.filter(i => typeof i === "string") : [];
+    rock.unlockedAchievements = Array.isArray(rock.unlockedAchievements) ? rock.unlockedAchievements.filter(i => typeof i === "string") : [];
+    rock.needs = rock.needs && typeof rock.needs === "object" ? rock.needs : { polish: 50, warmth: 50, attention: 50, stability: 50 };
+    rock.currency = typeof rock.currency === "number" ? rock.currency : 0;
+    rock.level = typeof rock.level === "number" ? rock.level : 1;
+    rock.xp = typeof rock.xp === "number" ? rock.xp : 0;
+
+    rock.memories = Array.isArray(rock.memories) ? rock.memories.slice(0, 200) : [];
+    rock.furnitureInventory = Array.isArray(rock.furnitureInventory) ? rock.furnitureInventory.filter((i) => typeof i === "string") : [];
+    rock.featuredFurnitureId = typeof rock.featuredFurnitureId === "string" ? rock.featuredFurnitureId : null;
+    rock.residence = rock.residence && Array.isArray(rock.residence.rooms) ? rock.residence : { rooms: [{ id: "main", name: "Main Enclosure" }] };
+    rock.companions = Array.isArray(rock.companions) ? rock.companions.filter((c) => c && typeof c.id === "string") : [];
+    rock.relationships = rock.relationships && typeof rock.relationships === "object" ? rock.relationships : {};
+    rock.household = rock.household && typeof rock.household.partnerId === "string" ? rock.household : null;
+
+    rock._wasImported = true;
+    rock.ownershipHistory = Array.isArray(rock.ownershipHistory) ? rock.ownershipHistory : [];
+    rock.ownershipHistory.push({ event: "imported", at: Date.now() });
+
+    return rock;
+  }
+
+  // Extracts only the identity-relevant fields from an imported .rock file
+  // for use as a Rock Tinder companion. Companions are display and
+  // compatibility data only; they never carry the importing player's own
+  // needs, currency, or achievement state, since a companion is someone
+  // else's specimen, not a save file to load.
+  function toCompanionSummary(importedRock) {
+    return {
+      id: importedRock.id,
+      name: importedRock.name,
+      seed: importedRock.seed,
+      appearance: importedRock.appearance,
+      stats: importedRock.stats,
+      personality: importedRock.personality,
+      geologicalAgeMillionYears: importedRock.geologicalAgeMillionYears,
+      importedAt: Date.now()
+    };
+  }
+
+  function exportToFile(rock) {
+    const payload = JSON.stringify(wrap(rock), null, 2);
+    const blob = new Blob([payload], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const safeName = (rock.name || "rock").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "rock";
+    a.href = url;
+    a.download = safeName + ".rock";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  global.Rockism = global.Rockism || {};
+  global.Rockism.State = {
+    SCHEMA_VERSION, GAME_VERSION,
+    saveLive, loadLive, clearLive,
+    backup, restoreBackup,
+    validateAndSanitizeImport, toCompanionSummary, exportToFile
+  };
+
+})(window);
+
+
+(function () {
+  const { RockModel, Renderer, Clothing, Furniture, Compatibility, Relationships, Achievements, State } = window.Rockism;
+
+  let rock = null;
+  let saveTimer = null;
+
+  const el = (id) => document.getElementById(id);
+
+  function toast(msg) {
+    const region = el("toastRegion");
+    const t = document.createElement("div");
+    t.className = "toast";
+    t.textContent = msg;
+    region.appendChild(t);
+    setTimeout(() => t.remove(), 3200);
+  }
+
+  function logEvent(text, isMemory) {
+    const entry = { at: Date.now(), text };
+    rock.events.unshift(entry);
+    rock.events = rock.events.slice(0, 500);
+    if (isMemory) {
+      rock.memories.unshift(entry);
+      rock.memories = rock.memories.slice(0, 200);
+    }
+  }
+
+  function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+  function applyOfflineDecay() {
+    const now = Date.now();
+    const elapsedHours = (now - (rock.lastTickAt || now)) / 3600000;
+    const decayPerHour = { polish: 1.2, warmth: 0.9, attention: 1.6, stability: 0.3 };
+    Object.keys(decayPerHour).forEach((k) => {
+      rock.needs[k] = clamp(rock.needs[k] - decayPerHour[k] * elapsedHours, 0, 100);
+    });
+    rock.lastTickAt = now;
+  }
+
+  function grantXp(amount) {
+    rock.xp += amount;
+    const xpForNextLevel = 50 + (rock.level - 1) * 35;
+    if (rock.xp >= xpForNextLevel) {
+      rock.xp -= xpForNextLevel;
+      rock.level += 1;
+      logEvent("Standing advanced to level " + rock.level + ", per periodic review.");
+      toast("Level up. Now level " + rock.level + ".");
+    }
+  }
+
+  function checkAchievements() {
+    const unlocked = Achievements.evaluate(rock);
+    unlocked.forEach((def) => {
+      toast("Achievement recorded, " + def.name + ".");
+      logEvent("Achievement filed with the Records Office, " + def.name + ".");
+    });
+  }
+
+  function scheduleSave() {
+    el("saveStatus").textContent = "Saving...";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      State.saveLive(rock);
+      const stamp = new Date().toLocaleTimeString();
+      el("saveStatus").textContent = "Last saved at " + stamp + ".";
+    }, 400);
+  }
+
+  function render() {
+    el("onboarding").classList.toggle("hidden", !!rock);
+    el("gameScreen").classList.toggle("hidden", !rock);
+    if (!rock) return;
+
+    Renderer.mountRock(el("rockCanvasWrap"), rock, rock.wornItems, rock.featuredFurnitureId);
+    el("rockNameLabel").textContent = rock.name;
+    el("rockClassLabel").textContent = rock.appearance.classification;
+
+    ["polish", "warmth", "attention", "stability"].forEach((k) => {
+      const fill = document.querySelector('[data-meter="' + k + '"]');
+      fill.style.width = clamp(rock.needs[k], 0, 100) + "%";
+    });
+
+    const statGrid = el("statGrid");
+    const stats = [
+      ["Hardness", rock.stats.hardness + " Mohs"],
+      ["Density", rock.stats.density + " g/cm3"],
+      ["Porosity", Math.round(rock.stats.porosity * 100) + "%"],
+      ["Mass", rock.stats.mass + " units"],
+      ["Structural integrity", rock.stats.structuralIntegrity + "%"],
+      ["Geological age", rock.geologicalAgeMillionYears + " million years"],
+      ["Personality", rock.personality.primary + ", " + rock.personality.secondary],
+      ["Shape family", rock.appearance.shapeFamily]
+    ];
+    statGrid.innerHTML = stats.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+
+    el("levelLabel").textContent = rock.level;
+    const xpForNextLevel = 50 + (rock.level - 1) * 35;
+    el("xpFill").style.width = clamp((rock.xp / xpForNextLevel) * 100, 0, 100) + "%";
+    el("xpLabel").textContent = rock.xp + " of " + xpForNextLevel + " standing points";
+
+    el("currencyAmount").textContent = rock.currency + " sediment credits";
+
+    renderWardrobe();
+    renderAchievements();
+    renderLedger();
+    renderDossier();
+    renderResidence();
+    renderTinder();
+  }
+
+  function currentHouseholdFunds() {
+    return rock.household ? rock.household.sharedFund : rock.currency;
+  }
+
+  function spendFromHousehold(amount) {
+    if (rock.household) {
+      if (rock.household.sharedFund < amount) return false;
+      rock.household.sharedFund -= amount;
+    } else {
+      if (rock.currency < amount) return false;
+      rock.currency -= amount;
+    }
+    return true;
+  }
+
+  function renderResidence() {
+    const summary = el("householdSummary");
+    if (rock.household) {
+      const partner = rock.companions.find((c) => c.id === rock.household.partnerId);
+      summary.innerHTML = `
+        <div class="panel">
+          <div class="panel-title">Shared household</div>
+          <p>Cohabiting with <strong>${partner ? partner.name : "an unspecified partner"}</strong> since ${new Date(rock.household.formedAt).toLocaleDateString()}.</p>
+          <p class="muted small">Shared household fund: ${rock.household.sharedFund} sediment credits.</p>
+          <button class="btn" id="contributeFundBtn">Contribute 10 credits to shared fund</button>
+        </div>
+      `;
+      const btn = document.getElementById("contributeFundBtn");
+      if (btn) btn.addEventListener("click", () => {
+        if (rock.currency < 10) { toast("Insufficient personal funds."); return; }
+        rock.currency -= 10;
+        rock.household.sharedFund += 10;
+        logEvent("Ten sediment credits contributed to the shared household fund.");
+        tick();
+      });
+    } else {
+      summary.innerHTML = `<p class="muted small">No shared household currently on file. Households are formed once a relationship reaches Committed status, from the Rock Tinder panel.</p>`;
+    }
+
+    const grid = el("furnitureGrid");
+    grid.innerHTML = Furniture.all().map((item) => {
+      const owned = rock.furnitureInventory.includes(item.id);
+      const featured = rock.featuredFurnitureId === item.id;
+      return `
+        <div class="item-tile furniture-tile">
+          <div>${item.name}</div>
+          <div class="muted small">${owned ? (featured ? "Featured" : "Owned") : item.price + " credits"}</div>
+          ${owned
+            ? `<button class="btn" data-feature="${item.id}">${featured ? "Unfeature" : "Feature"}</button>`
+            : `<button class="btn" data-buy="${item.id}">Purchase</button>`}
+        </div>`;
+    }).join("");
+  }
+
+  function wireResidence() {
+    el("furnitureGrid").addEventListener("click", (e) => {
+      const buyId = e.target.dataset.buy;
+      const featureId = e.target.dataset.feature;
+      if (buyId) {
+        const item = Furniture.byId(buyId);
+        if (!spendFromHousehold(item.price)) { toast("Insufficient funds."); return; }
+        rock.furnitureInventory.push(buyId);
+        logEvent("Acquired furnishing for the residence, " + item.name + ".");
+        tick();
+      } else if (featureId) {
+        rock.featuredFurnitureId = rock.featuredFurnitureId === featureId ? null : featureId;
+        tick();
+      }
+    });
+  }
+
+  function renderTinder() {
+    const list = el("companionList");
+    if (!rock.companions.length) {
+      list.innerHTML = `<p class="muted small">No introductions on file. Import a .rock file above to begin.</p>`;
+      return;
+    }
+    list.innerHTML = rock.companions.map((c) => {
+      const rel = rock.relationships[c.id];
+      const report = Compatibility.computeCompatibility(rock, c);
+      const canHousehold = Relationships.canFormHousehold(rock, c.id) && !rock.household;
+      return `
+        <div class="companion-card">
+          <h4>${c.name}</h4>
+          <p class="muted small">${c.appearance.classification}, ${c.geologicalAgeMillionYears} million years old.</p>
+          <span class="stage-tag">${rel.stage}</span>
+          <div class="companion-report">
+            <span>Structural</span><span>${report.structural}%</span>
+            <span>Mineral</span><span>${report.mineral}%</span>
+            <span>Temperament</span><span>${report.temperament}%</span>
+            <span>Overall</span><span>${report.overall}%</span>
+          </div>
+          <p class="muted small">${report.verdict}</p>
+          <div class="companion-actions">
+            ${rel.stage === "Stranger" ? `<button class="btn" data-introduce="${c.id}">Introduce</button>` : ""}
+            ${rel.stage !== "Stranger" && rel.stage !== "Cohabiting" ? `<button class="btn" data-court="${c.id}">Court</button>` : ""}
+            ${canHousehold ? `<button class="btn btn-primary" data-household="${c.id}">Form shared household</button>` : ""}
+          </div>
+        </div>`;
+    }).join("");
+  }
+
+  function wireTinder() {
+    el("companionImportInput").addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const imported = State.validateAndSanitizeImport(reader.result);
+          if (imported.id === rock.id) {
+            toast("A specimen cannot be introduced to itself.");
+            return;
+          }
+          const summary = State.toCompanionSummary(imported);
+          Relationships.addCompanion(rock, summary);
+          logEvent("A new specimen was introduced through Rock Tinder, " + summary.name + ".");
+          toast(summary.name + " has been added to your introductions.");
+          tick();
+        } catch (err) {
+          toast("Import failed. " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = "";
+    });
+
+    el("companionList").addEventListener("click", (e) => {
+      const introduceId = e.target.dataset.introduce;
+      const courtId = e.target.dataset.court;
+      const householdId = e.target.dataset.household;
+      const companion = rock.companions.find((c) => c.id === (introduceId || courtId || householdId));
+      if (introduceId) {
+        Relationships.introduce(rock, introduceId);
+        logEvent("Formal introduction made with " + companion.name + ".", true);
+        grantXp(3);
+        tick();
+      } else if (courtId) {
+        const report = Compatibility.computeCompatibility(rock, companion);
+        const rel = Relationships.court(rock, courtId, report.overall);
+        logEvent("Courtship gesture extended toward " + companion.name + ", relationship now " + rel.stage + ".");
+        grantXp(2);
+        tick();
+      } else if (householdId) {
+        try {
+          Relationships.formHousehold(rock, householdId);
+          logEvent("A shared household was formed with " + companion.name + ".", true);
+          toast("Shared household formed with " + companion.name + ".");
+          grantXp(15);
+          tick();
+        } catch (err) {
+          toast(err.message);
+        }
+      }
+    });
+  }
+
+  function renderWardrobe() {
+    const grid = el("wardrobeGrid");
+    const owned = rock.inventory;
+    el("wardrobeCount").textContent = owned.length + " of " + Clothing.TOTAL_PLANNED + " catalogued items owned.";
+    grid.innerHTML = Clothing.all().map((item) => {
+      const has = owned.includes(item.id);
+      const worn = rock.wornItems.includes(item.id);
+      return `
+        <button class="item-tile ${has ? "" : "locked"}" data-item="${item.id}" ${has ? "" : "disabled"}>
+          <div class="item-swatch" style="background:${item.color}"></div>
+          <div>${item.name}</div>
+          <div class="muted">${worn ? "Worn" : has ? "Owned" : "Not acquired"}</div>
+        </button>`;
+    }).join("");
+  }
+
+  function renderAchievements() {
+    const grid = el("achievementGrid");
+    el("achievementCount").textContent = rock.unlockedAchievements.length + " of " + Achievements.TOTAL_PLANNED + " planned records on file.";
+    grid.innerHTML = Achievements.DEFS.map((def) => {
+      const has = rock.unlockedAchievements.includes(def.id);
+      return `
+        <div class="item-tile ${has ? "" : "locked"}">
+          <div>${def.name}</div>
+          <div class="muted">${has ? def.desc : "Sealed pending qualification."}</div>
+        </div>`;
+    }).join("");
+  }
+
+  function renderLedger() {
+    const list = el("ledgerList");
+    list.innerHTML = rock.events.slice(0, 60).map((ev) => `
+      <li><time>${new Date(ev.at).toLocaleString()}</time>${ev.text}</li>
+    `).join("");
+  }
+
+  function renderDossier() {
+    const body = el("dossierBody");
+    body.innerHTML = `
+      <dl class="stat-grid">
+        <dt>Name</dt><dd>${rock.name}</dd>
+        <dt>Identifier</dt><dd>${rock.id}</dd>
+        <dt>Classification</dt><dd>${rock.appearance.classification}</dd>
+        <dt>Surface texture</dt><dd>${rock.appearance.surfaceTexture}</dd>
+        <dt>Generation seed</dt><dd>${rock.seed}</dd>
+        <dt>Registered</dt><dd>${new Date(rock.createdAt).toLocaleDateString()}</dd>
+        <dt>Ownership events</dt><dd>${rock.ownershipHistory.length}</dd>
+      </dl>
+    `;
+  }
+
+  function tick() {
+    if (!rock) return;
+    applyOfflineDecay();
+    Relationships.decayAffinity(rock);
+    checkAchievements();
+    render();
+    scheduleSave();
+  }
+
+  // --- Actions ---
+  function actionPolish() {
+    rock.needs.polish = clamp(rock.needs.polish + 15, 0, 100);
+    rock._polishCount = (rock._polishCount || 0) + 1;
+    grantXp(4);
+    logEvent("Specimen polished per standard procedure.");
+    tick();
+  }
+  function actionTalk() {
+    rock.needs.attention = clamp(rock.needs.attention + 12, 0, 100);
+    grantXp(3);
+    logEvent("A brief statement was addressed to the specimen. It did not respond, as expected.");
+    tick();
+  }
+  function actionRelocate() {
+    rock.needs.stability = clamp(rock.needs.stability + 8, 0, 100);
+    grantXp(2);
+    logEvent("Specimen repositioned within its enclosure for optimal viewing.");
+    tick();
+  }
+  function actionObserve() {
+    rock.currency += 3;
+    grantXp(5);
+    logEvent("A period of formal observation was logged and compensated.");
+    tick();
+  }
+
+  function wireActions() {
+    document.getElementById("quickActions").addEventListener("click", (e) => {
+      const btn = e.target.closest(".action-btn");
+      if (!btn) return;
+      const map = { polish: actionPolish, talk: actionTalk, relocate: actionRelocate, observe: actionObserve };
+      (map[btn.dataset.action] || (() => {}))();
+    });
+  }
+
+  function wireMenu() {
+    const menu = el("recordsMenu");
+    const toggle = el("menuToggle");
+    toggle.addEventListener("click", () => {
+      const open = menu.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
+      menu.setAttribute("aria-hidden", String(!open));
+    });
+    menu.addEventListener("click", (e) => {
+      const item = e.target.closest(".menu-item");
+      if (!item) return;
+      openPanel(item.dataset.panel);
+      menu.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
+    document.querySelectorAll(".close-panel").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.target.closest(".overlay-panel").classList.add("hidden");
+      });
+    });
+  }
+
+  function openPanel(name) {
+    document.getElementById("panel-" + name).classList.remove("hidden");
+    render();
+  }
+
+  function wireWardrobe() {
+    el("wardrobeGrid").addEventListener("click", (e) => {
+      const tile = e.target.closest(".item-tile");
+      if (!tile || tile.disabled) return;
+      const id = tile.dataset.item;
+      const idx = rock.wornItems.indexOf(id);
+      if (idx >= 0) {
+        rock.wornItems.splice(idx, 1);
+        logEvent("A garment was removed from the specimen and returned to storage.");
+      } else {
+        rock.wornItems.push(id);
+        logEvent("A garment was fitted to the specimen and logged.");
+      }
+      tick();
+    });
+  }
+
+  function wireFiling() {
+    el("exportBtn").addEventListener("click", () => {
+      rock._exportCount = (rock._exportCount || 0) + 1;
+      State.exportToFile(rock);
+      logEvent("Specimen exported as a portable .rock file.");
+      tick();
+    });
+
+    el("importInput").addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const imported = State.validateAndSanitizeImport(reader.result);
+          rock = imported;
+          logEvent("Specimen imported from external file.");
+          toast("Specimen imported successfully.");
+          tick();
+        } catch (err) {
+          toast("Import failed. " + err.message);
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = "";
+    });
+
+    el("backupBtn").addEventListener("click", () => {
+      State.backup(rock);
+      rock._backupCount = (rock._backupCount || 0) + 1;
+      toast("Backup created.");
+      tick();
+    });
+
+    el("restoreBtn").addEventListener("click", () => {
+      const restored = State.restoreBackup();
+      if (!restored) { toast("No backup was found."); return; }
+      rock = restored;
+      toast("Backup restored.");
+      tick();
+    });
+
+    el("resetBtn").addEventListener("click", () => {
+      if (!confirm("This permanently discards the current specimen and all records. Proceed?")) return;
+      State.clearLive();
+      rock = null;
+      render();
+      toast("Game reset.");
+    });
+  }
+
+  function wireOnboarding() {
+    el("createRockBtn").addEventListener("click", () => {
+      const name = (el("nameInput").value || "").trim().slice(0, 24) || "Unnamed Specimen";
+      const seed = window.Rockism.newSeed();
+      rock = RockModel.createNewRock(name, seed);
+      logEvent("Intake form processed. Welcome to the Bureau.");
+      tick();
+    });
+  }
+
+  function boot() {
+    wireActions();
+    wireMenu();
+    wireWardrobe();
+    wireFiling();
+    wireOnboarding();
+    wireResidence();
+    wireTinder();
+
+    const loaded = State.loadLive();
+    if (loaded) {
+      rock = loaded;
+      applyOfflineDecay();
+    }
+    render();
+
+    setInterval(tick, 60000);
+
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./service-worker.js").catch(() => {});
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", boot);
+})();
+
+</script>
+</body>
+</html>

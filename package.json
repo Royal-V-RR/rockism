@@ -1,0 +1,16 @@
+{
+  "name": "rockism",
+  "version": "0.1.0",
+  "description": "Rockism. A completely unnecessary simulation of geological life.",
+  "private": true,
+  "scripts": {
+    "lint": "eslint tests tools --ext .js,.mjs,.cjs",
+    "validate": "node tools/validate-data.cjs",
+    "test": "node --test tests/*.cjs",
+    "build": "node tools/build.cjs",
+    "serve": "npx http-server dist -p 8080"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0"
+  }
+}
